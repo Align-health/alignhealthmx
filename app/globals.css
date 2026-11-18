@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+/*
+  PALETA Y TIPOGRAFÍA PROVISIONALES
+  Tonos tomados a ojo del perfil de Instagram (@alignhealthmx).
+  Sustituir por los valores oficiales del manual de identidad (ver PENDIENTES.md).
+*/
+@theme {
+  --color-cream: #faf6e6;
+  --color-paper: #fffdf5;
+  --color-butter: #f3e8b0;
+  --color-sage: #cbd3b6;
+  --color-olive: #6b6a3a;
+  --color-olive-deep: #4a492a;
+  --color-ink: #26261c;
+  --color-stone: #6a6858;
+  --color-line: #ddd8c0;
+
+  --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans: "Jost Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-olive);
+  outline-offset: 3px;
+}
+
+.wrap {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 72rem;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 640px) {
+  .wrap {
+    padding-inline: 2rem;
+  }
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-olive);
+}
+
+.btn {
+  display: inline-flex;
+  min-height: 44px;
+  white-space: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.8rem 1.6rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+.btn-primary {
+  background: var(--color-olive);
+  color: var(--color-paper);
+}
+.btn-primary:hover {
+  background: var(--color-olive-deep);
+}
+.btn-ghost {
+  border: 1px solid var(--color-olive);
+  color: var(--color-olive-deep);
+}
+.btn-ghost:hover {
+  background: var(--color-olive);
+  color: var(--color-paper);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Acordeón de preguntas frecuentes (sin JavaScript) */
+details.faq > summary {
+  cursor: pointer;
+  list-style: none;
+}
+details.faq > summary::-webkit-details-marker {
+  display: none;
+}
+details.faq[open] .faq-icon {
+  transform: rotate(45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
